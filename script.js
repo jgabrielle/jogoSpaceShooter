@@ -20,7 +20,7 @@ function flyAhip (event){
 //funcao de subir
 function moveUp(){
 	let topPosition = getComputedStyle(yourShip).getPropertyValue('top');
-	if(topPosition === "0px"){
+	if(topPosition === "5px"){
 		return
 	} else{
 		let position = parseInt(topPosition);
@@ -32,7 +32,7 @@ function moveUp(){
 //funcao de descer
 function moveDown(){
 	let topPosition = getComputedStyle(yourShip).getPropertyValue('top');
-	if(topPosition === "540px"){
+	if(topPosition === "605px"){
 		return
 	} else{
 		let position = parseInt(topPosition);
@@ -40,3 +40,5 @@ function moveDown(){
 		yourShip.style.top = `${position}px`;
 	}
 }
+
+window.addEventListener('keydown', flyAhip);
