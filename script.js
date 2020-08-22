@@ -66,7 +66,7 @@ function moveLaser(laser){
 		let xPosition = parseInt(laser.style.left);
 		let alien = document.querySelectorAll('.alien');
 
-		aliens.forEach((alien) => { //verificando se cada alien foi atingido
+		alien.forEach((alien) => { //verificando se cada alien foi atingido
 			if(checkLaserCollision(laser,alien)){
 				alien.scr = 'img/explosion.png';
 				alien.classList.remove('alien');
@@ -86,12 +86,12 @@ function moveLaser(laser){
 //criar monstro aleatorio
 function createAliens(){
 	let newAlien = document.createElement('img');
-	let alienSprite = aliensImg[Math.floor(Math.randon()* aliensImg.lenght)];//sorteio de imagem
+	let alienSprite = aliensImg[Math.floor(Math.random()* aliensImg.lenght)];//sorteio de imagem
 	newAlien.scr = alienSprite;
 	newAlien.classList.add('alien');
 	newAlien.classList.add('alien.transition');
 	newAlien.style.left = '370px';
-	newAlien.style.top = `${Math.floor(Math.randon()*330)+30}`
+	newAlien.style.top = `${Math.floor(Math.random()*330)+30}`
 	playArea.appendChild(newAlien);
 	moveAlien(newAlien);
 }
@@ -120,7 +120,7 @@ function checkLaserCollision(laser,alien){
 	let alienTop = parseInt(alien.style.top);
 	let alienLeft = parseInt(alien.style.left);
 	let alienBottom = alienTop-30;
-	if (laserLeft != 340 laserLeft + 40 >= alienLeft) {
+	if (laserLeft != 340 && laserLeft + 40 >= alienLeft) {
 		if(laserTop<= alienTop && laserTop >= alienBottom){
 			return true;
 		}
@@ -130,4 +130,4 @@ function checkLaserCollision(laser,alien){
 	}
 }
 window.addEventListener('keydown', flyAhip);
-createAliens()
+createAliens();
