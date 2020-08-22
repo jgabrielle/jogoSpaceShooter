@@ -9,9 +9,9 @@ body {
 	font-family: sans-serif;
 	background-color: cornflowerblue;
 }
-main-play-area {
+#main-play-area {
 	background-color: black;
-	background-image: url("img/space.png");
+	background-image: url(img/space.png);
 	height: 600px;
 	width: 600px;
 }
