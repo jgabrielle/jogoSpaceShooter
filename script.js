@@ -129,3 +129,4 @@ function checkLaserCollision(laser,alien){
 	}
 }
 window.addEventListener('keydown', flyAhip);
+createAliens();
