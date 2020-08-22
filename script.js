@@ -60,10 +60,18 @@ function createLaserElement(){
 	return newLaser;
 }
 
-//funcaode movimentar o laser
+//funcao de movimentar o laser
 function moveLaser(laser){
 	let laserInterval = setInterval(()=>{
 		let xPosition = parseInt(laser.style.left);
+		let alien = document.querySelectorAll('.alien');
+
+		aliens.forEach((alien) => { //verificando se cada alien foi atingido
+			alien.scr = 'img/explosion.png';
+			alien.classList.remove();
+			alien.classList.add('dead-alien');
+
+		})
 
 		if (xPosition === 340) {
 			laser.remove();
@@ -100,7 +108,24 @@ function moveAlien(alien){
 		} else {
 				alien.style.left = `${xPosition - 4}px`;
 			}
-	})
+	},30);
 }
 
+//funcao para colisao
+function checkLaserCollision(laser,alien){
+	let laserTop = parseInt(laser.style.top);
+	let laserLeft = parseInt(laser.style.left);
+	let laserBottom = laserTop-20;
+	let alienTop = parseInt(alien.style.top);
+	let alienLeft = parseInt(alien.style.left);
+	let alienBottom = alienTop-30;
+	if (laserLeft != 340 laserLeft + 40 >= alienLeft) {
+		if(laserTop<= alienTop && laserTop >= alienBottom){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+}
 window.addEventListener('keydown', flyAhip);
